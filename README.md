@@ -5,16 +5,16 @@ MoodLight
 Environment
 -----------
 
-*Board  
-  *Raspberry Pi  
-*OS  
-  *Raspbian  
-*Framework  
-  *Node.JS  
-*Libraries  
-  *wiring-pi  
-  *node-speaker  
-  *express  
-  *fs  
-*WebPage  
-  *Bootstrap  
+* Board  
+  * Raspberry Pi  
+* OS  
+  * Raspbian  
+* Framework  
+  * Node.JS  
+* Libraries  
+  * wiring-pi  
+  * node-speaker  
+  * express  
+  * fs  
+* WebPage  
+  * Bootstrap  
