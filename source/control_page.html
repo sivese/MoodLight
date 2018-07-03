@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <link rel="icon" href="http://bootstrapk.com/favicon.ico">
+    <script language="javascript" src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+    <title>Flower MoodLight Control Page</title>
+
+    <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+    <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    .page-header {
+      padding-bottom: 9px;
+      margin: 40px 0 20px;
+      border-bottom: 1px solid #eee;
+    }
+    .text-muted {
+      color: #777;
+    }
+    .container {
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    @media (min-width: 768px) {
+      .container {
+        width: 750px;
+      }
+    }
+    @media (min-width: 992px) {
+      .container {
+        width: 970px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .container {
+        width: 1170px;
+      }
+    }
+    .col-lg-6 {
+      width: 50%;
+    }
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+      position: relative;
+      min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 6px 12px;
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 1.42857143;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      -ms-touch-action: manipulation;
+          touch-action: manipulation;
+      cursor: pointer;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      background-image: none;
+      border: 1px solid transparent;
+      border-radius: 4px;
+    }
+    .btn-lg,
+    .btn-group-lg > .btn {
+      padding: 10px 16px;
+      font-size: 18px;
+      line-height: 1.3333333;
+      border-radius: 6px;
+    }
+    .btn-success {
+      color: #fff;
+      background-color: #5cb85c;
+      border-color: #4cae4c;
+    }
+    .row {
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+    .row:before,
+    .row:after,
+    {
+      display: table;
+      content: " ";
+     }
+
+
+    .row:after
+    {
+      clear: both;
+    }
+    </style>
+</head>
+
+<body>
+  <div class="page-header" style="margin-left: 40px; width:100%; height:120px;">
+    <h3 class="text-muted" style="color:#5882FA; font-size:40px;">Flower MoodLamp</h3>
+    <p style="font-size:20px; margin-bottom:;"> 무드등을 제어하는 페이지 입니다. 원하는 메뉴를 선택해주세요!</p>
+  </div>
+  <div class="container">
+
+    <div class="row marketing">
+      <div class="col-lg-6">
+        <h4 style="margin-top:20px">조명 ON/OFF</h4>
+        <p>조명을 끄고 킵니다.</p>
+        <%if(!LED_ON){%>
+        <p><a class="btn btn-lg btn-success"  style="margin-bottom:20px; background-color:"
+              role="button" href="/led_on">ON</a></p>
+        <%}else{%>
+        <p><a class="btn btn-lg btn-success"  style="margin-bottom:20px; background-color:RED; border-width:0px"
+                role="button" href="/led_off">OFF</a></p>
+        <%}%>
+
+        <h4 style="margin-top:20px">조명 점멸 ON/OFF</h4>
+        <p>조명의 점멸 기능을 다룹니다.</p>
+        <%if(!LED_BLINK){%>
+        <p><a class="btn btn-lg btn-success"  style="margin-bottom:20px; background-color:"
+              role="button" href="/blink_on">ON</a></p>
+        <%}else{%>
+        <p><a class="btn btn-lg btn-success"  style="margin-bottom:20px; background-color:RED; border-width:0px"
+                role="button" href="/blink_off">OFF</a></p>
+        <%}%>
+
+        <h4 style="margin-top:20px">조명 색상 설정</h4>
+        <p>조명의 색상을 설정합니다.</p>
+        <div class="row">
+          <div class="col-sm-2">
+            <%if(RED){%>
+            <p><a class="btn btn-lg btn-success"  style="margin-bottom:10px; background-color:#000000; border-width:0px"
+                  role="button" href="/red_off">RED OFF</a></p>
+            <%}else{%>
+            <p><a class="btn btn-lg btn-success"  style="margin-bottom:10px; background-color:RED; border-width:0px"
+                    role="button" href="/red_on">RED ON</a></p>
+            <%}%>
+          </div>
+          <div class="col-sm-2">
+            <%if(GREEN){%>
+            <p><a class="btn btn-lg btn-success"  style="margin-bottom:10px; background-color:#000000; border-width:0px"
+                  role="button" href="/green_off">GREEN OFF</a></p>
+            <%}else{%>
+            <p><a class="btn btn-lg btn-success"  style="margin-bottom:10px; background-color:GREEN; border-width:0px"
+                    role="button" href="/green_on">GREEN ON</a></p>
+            <%}%>
+          </div>
+          <div class="col-sm-2">
+            <%if(BLUE){%>
+            <p><a class="btn btn-lg btn-success"  style="margin-bottom:20px; background-color:#000000; border-width:0px"
+                  role="button" href="/blue_off">BLUE OFF</a></p>
+            <%}else{%>
+            <p><a class="btn btn-lg btn-success"  style="margin-bottom:20px; background-color:BLUE; border-width:0px"
+                    role="button" href="/blue_on">BLUE ON</a></p>
+            <%}%>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer" style="margin-top:40px">
+      <p>© MoodLamp Project 2018 @copyleft by 이태화, 김원재</p>
+    </footer>
+
+  </div> <!-- /container -->
+
+  <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
